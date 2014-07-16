@@ -20,11 +20,11 @@ def create_box():
     validation_errors = _validate_box_params()
     if len(validation_errors)>0:
         error_str = ' '.join(validation_errors)
-        logger.warn("Errors: "+error_str)
+        logger.debug("Errors: "+error_str)
         return render_template('home.html', error=error_str)
     else:
         box_name = _box_name()
-        logger.info('Creating box '+box_name+"...")
+        logger.debug('Creating box '+box_name+"...")
         # convert it to millimeters
         measurements = ['width','height','depth','material_thickness','cut_width','notch_length']
         conversion = 1
@@ -43,10 +43,10 @@ def create_box():
         return send_from_directory(BOX_TMP_DIR,box_name,as_attachment=True)
 
 def _render_box(file_name, params):
+    logger.info(file_name+": "+" ".join(params))
     boxmaker_jar_file = "BOX-v.1.6.1.jar"
     pdf_file_path = os.path.join(BOX_TMP_DIR,file_name) 
     args = [ 'java', '-cp', boxmaker_jar_file, 'com.rahulbotics.boxmaker.CommandLine', pdf_file_path ] + params
-    logger.info(args)
     subprocess.call(args)
 
 def _box_name():
@@ -55,11 +55,11 @@ def _box_name():
 def _validate_box_params():
     errors = []
     errors+= _numeric_errors(request.form['width'],'Width')
-    errors+= _numeric_errors(request.form['depth'],'Depth')
     errors+= _numeric_errors(request.form['height'],'Height')
+    errors+= _numeric_errors(request.form['depth'],'Depth')
     errors+= _numeric_errors(request.form['material_thickness'],'Material thickness')
-    errors+= _numeric_errors(request.form['notch_length'],'Notch length')
     errors+= _numeric_errors(request.form['cut_width'],'Cut width')
+    errors+= _numeric_errors(request.form['notch_length'],'Notch length')
     return errors
 
 def _numeric_errors(str, name):
@@ -69,12 +69,6 @@ def _numeric_errors(str, name):
     except ValueError:
         return [ name + " must be a number!"]
 
-def _create_box_design():
-    '''
-    Helper function to render an actual box using the java library
-    '''
-    return True
-
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = False
     app.run()
