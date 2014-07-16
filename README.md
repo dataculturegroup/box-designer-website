@@ -20,3 +20,8 @@ Running
 -------
 
 Just run `python server.py` and then try it at http://localhost:5000 in your web browser.
+
+License
+-------
+
+This software is released under the [http://www.gnu.org/licenses/agpl.html](GNU Affero General Public License).
