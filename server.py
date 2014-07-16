@@ -45,9 +45,6 @@ def create_box():
 def _render_box(file_name, params):
     boxmaker_jar_file = "BOX-v.1.6.1.jar"
     pdf_file_path = os.path.join(BOX_TMP_DIR,file_name) 
-    #command = "java -cp "+boxmaker_jar_file+" com.rahulbotics.boxmaker.CommandLine "
-    #command+= pdf_file_path
-    #command+= " 101.6 127 152.4 4.7625 0 11.90625 false"
     args = [ 'java', '-cp', boxmaker_jar_file, 'com.rahulbotics.boxmaker.CommandLine', pdf_file_path ] + params
     logger.info(args)
     subprocess.call(args)
