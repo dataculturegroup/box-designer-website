@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Create designs for boxes you can laser cut">
+    <meta name="keywords" content="box, laser cutter, cad">
+    <meta name="author" content="Rahul Bhargava - Connection Lab, LLC">
+
+    <title>{% block page_title %}BoxMaker{% endblock %}</title>
+
+    <link rel="stylesheet" href="/static/styles/bootstrap.min.css" type="text/css" charset="utf-8" />
+    <!-- <link rel="stylesheet" href="/static/styles/bootstrap-theme.min.css" type="text/css" charset="utf-8" /> -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/static/styles/boxmaker.css" type="text/css" charset="utf-8" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="Shortcut Icon" href="/static/icons/favicon.ico" type="image/x-icon">
+
+    <script src="/static/scripts/jquery-2.1.1.min.js"></script>
+    <script src="/static/scripts/bootstrap.min.js"></script>
+    <script src="/static/scripts/boxmaker.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-md-4">
+          <h1>BoxMaker</h1>
+          <p>
+            Give us dimensions and we'll generate a PDF you can use to cut a notched 
+            box on a laser-cutter. Check out this <a href="/static/files/example-box.pdf">example box design</a>.
+          </p>
+          <br />
+          <p>
+            <i>
+            email: rahul [ at ] connectionlab [ dot ] org
+            <br />
+            a <a href="http://rahul.connectionlab.org/">Connection Lab</a> project
+            <br />
+            twitter: <a href="http://twitter.com/rahulbot">@rahulbot</a>
+            <br />
+            version 1.6
+            </i>
+          </p>
+          <br />          
+          <div id="bm-flickr-pool">
+            <p>
+            Add your picture to the <a href="http://www.flickr.com/groups/boxmaker/">BoxMaker flickr pool</a>!
+            </p>
+            <object width="293" height="220"> <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fgroups%2Fboxmaker%2Fpool%2Fshow%2F&page_show_back_url=%2Fgroups%2Fboxmaker%2Fpool%2F&group_id=1756789@N22&jump_to=&start_index="></param> <param name="movie" value="https://www.flickr.com/apps/slideshow/show.swf?v=143270"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/slideshow/show.swf?v=143270" allowFullScreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fgroups%2Fboxmaker%2Fpool%2Fshow%2F&page_show_back_url=%2Fgroups%2Fboxmaker%2Fpool%2F&group_id=1756789@N22&jump_to=&start_index=" width="293" height="220"></embed></object>
+          </div>
+        </div>
+        <div class="col-md-8">
+          {% block content %}
+          {{ content |safe }}
+          {% endblock %}
+        </div>
+      </div>
+
+    </div>
+
+    <a href="http://github.com/rahulbot/boxmaker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+
+  </body>
+
+  <script>
+  $(function(){
+    BoxMaker.init();
+  });
+  </script>
+  <script>
+  {% block page_scripts %}{% endblock %}
+  </script>
+
+</html>

@@ -1,0 +1,94 @@
+/* http://www.colourlovers.com/palette/1311586/autumn_wood */
+
+body {
+    font-family: 'Gill Sans', Verdana;
+	background-color: #EB8429;
+}
+
+h1 {
+   font-family: times, 'Times New Roman', times-roman, georgia, serif;
+   color: #7B354D;
+   font-size: 56px;
+   font-weight: bold;
+   letter-spacing: -1px;
+   line-height: 60px;
+   margin-bottom: 10px;
+   padding-bottom: 0px;
+}
+
+a:active,
+a:focus,
+a:hover,
+a:link,
+a:visited,
+a {
+    color: #7B354D;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+label {
+	font-weight: normal;
+}
+
+label.control-label {
+	color: #9F923C;
+	text-transform: uppercase; 
+	font-weight: bold;
+}
+
+input[type='text'] {
+	font-weight: bold;
+	color: #EB8429;
+}
+
+small {
+    color: #666;
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, sans-serif;
+}
+
+#bm-create-form a:active,
+#bm-create-form a:focus,
+#bm-create-form a:hover,
+#bm-create-form a:link,
+#bm-create-form a:visited,
+#bm-create-form a {
+    color: #9F923C;
+	text-transform: uppercase;
+}
+
+.bm-errors {
+    background-color: #C33C10;
+    color: #ffffff;
+    margin: 0px 10px;
+	margin-bottom: 15px;
+	padding: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+} 
+.bm-errors ul {
+    margin-bottom: 0px;
+}
+
+#bm-create-form {
+	margin-top: 30px;
+	background-color: #FCEAAA;
+	border: 3px solid #C33C10;
+	border-radius: 10px;
+}
+
+#bm-create-form input[type="text"] {
+	width: 100px;
+	display: inline-block;
+}
+
+#bm-create-form .input {
+    width: 140px;
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
