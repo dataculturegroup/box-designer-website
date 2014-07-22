@@ -1,15 +1,21 @@
-import logging, os, datetime, subprocess
+import logging, logging.handlers, os, datetime, subprocess
 from flask import Flask, render_template, request, redirect, send_from_directory
 
 app = Flask(__name__)
 
-# setup logging
-logging.basicConfig(filename='boxmaker.log',level=logging.DEBUG)
-logger = logging.getLogger(__name__)
-logger.info("---------------------------------------------------------------------------")
-
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 BOX_TMP_DIR = os.path.join( BASE_DIR, 'tmp', 'boxes')
+
+# setup logging
+logging.basicConfig(level=logging.DEBUG)
+log_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+log_handler = logging.handlers.RotatingFileHandler(
+    os.path.join(BASE_DIR,'boxmaker.log'), 'a', 10485760, 10) # 10MB
+log_handler.setFormatter(log_formatter)
+logger = logging.getLogger(__name__)
+logger.propagate = False
+logger.addHandler(log_handler)
+logger.info("---------------------------------------------------------------------------")
 
 @app.route("/")
 def index():
