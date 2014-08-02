@@ -1,2 +1,9 @@
 *.log
 /tmp/boxes/*.pdf
+bin
+core
+include
+lib
+public
+*.pyc
+tmp/restart.txt
