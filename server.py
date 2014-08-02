@@ -17,36 +17,35 @@ logger.propagate = False
 logger.addHandler(log_handler)
 logger.info("---------------------------------------------------------------------------")
 
-@app.route("/")
+@app.route("/", methods=['GET','POST'])
 def index():
-    return render_template("home.html")
-
-@app.route("/create", methods=['POST'])
-def create_box():
-    validation_errors = _validate_box_params()
-    if len(validation_errors)>0:
-        error_str = ' '.join(validation_errors)
-        logger.debug("Errors: "+error_str)
-        return render_template('home.html', error=error_str)
-    else:
-        box_name = _box_name()
-        logger.debug('Creating box '+box_name+"...")
-        # convert it to millimeters
-        measurements = ['width','height','depth','material_thickness','cut_width','notch_length']
-        conversion = 1
-        if request.form['units']=='in':
-            conversion = 25.4
-        elif request.form['units']=='cm':
-            conversion = 10
-        details = [str(float(request.form[m])*conversion) for m in measurements]
-        # and add bounding box option
-        if 'bounding_box' in request.form:
-            details.append( 'true' )
+    if request.method == 'POST':
+        validation_errors = _validate_box_params()
+        if len(validation_errors)>0:
+            error_str = ' '.join(validation_errors)
+            logger.debug("Errors: "+error_str)
+            return render_template('home.html', error=error_str)
         else:
-            details.append( 'false' )
-        # now render it
-        _render_box(box_name, details)
-        return send_from_directory(BOX_TMP_DIR,box_name,as_attachment=True)
+            box_name = _box_name()
+            logger.debug('Creating box '+box_name+"...")
+            # convert it to millimeters
+            measurements = ['width','height','depth','material_thickness','cut_width','notch_length']
+            conversion = 1
+            if request.form['units']=='in':
+                conversion = 25.4
+            elif request.form['units']=='cm':
+                conversion = 10
+            details = [str(float(request.form[m])*conversion) for m in measurements]
+            # and add bounding box option
+            if 'bounding_box' in request.form:
+                details.append( 'true' )
+            else:
+                details.append( 'false' )
+            # now render it
+            _render_box(box_name, details)
+            return send_from_directory(BOX_TMP_DIR,box_name,as_attachment=True)
+    else:
+        return render_template("home.html")
 
 def _render_box(file_name, params):
     logger.info(file_name+": "+" ".join(params))
