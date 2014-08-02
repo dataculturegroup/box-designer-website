@@ -42,13 +42,13 @@ def index():
             else:
                 details.append( 'false' )
             # now render it
+            logger.info( request.remote_addr + " - " + box_name + " - " + (" ".join(details)) )
             _render_box(box_name, details)
             return send_from_directory(BOX_TMP_DIR,box_name,as_attachment=True)
     else:
         return render_template("home.html")
 
 def _render_box(file_name, params):
-    logger.info(file_name+": "+" ".join(params))
     boxmaker_jar_file = "BOX-v.1.6.1.jar"
     pdf_file_path = os.path.join(BOX_TMP_DIR,file_name) 
     args = [ 'java', '-cp', boxmaker_jar_file, 'com.rahulbotics.boxmaker.CommandLine', pdf_file_path ] + params
