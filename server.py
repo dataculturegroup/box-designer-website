@@ -21,7 +21,7 @@ logger.info("-------------------------------------------------------------------
 def index():
     return render_template("home.html")
 
-@app.route("/box/create", methods=['POST'])
+@app.route("/create", methods=['POST'])
 def create_box():
     validation_errors = _validate_box_params()
     if len(validation_errors)>0:
