@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 
 app = Flask(__name__)
 
-BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BOX_TMP_DIR = os.path.join( BASE_DIR, 'tmp', 'boxes')
 
 # setup logging
