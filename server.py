@@ -49,7 +49,7 @@ def index():
         return render_template("home.html")
 
 def _render_box(file_name, params):
-    boxmaker_jar_file = "BOX-v.1.6.1.jar"
+    boxmaker_jar_file = "BOX-v1.6.1.jar"
     pdf_file_path = os.path.join(BOX_TMP_DIR,file_name) 
     args = [ 'java', '-cp', boxmaker_jar_file, 'com.rahulbotics.boxmaker.CommandLine', pdf_file_path ] + params
     subprocess.call(args)
