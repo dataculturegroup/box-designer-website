@@ -1,7 +1,6 @@
 
 var BoxMaker = {
 
-	VERSION: 0.1,
 	MM_PER_INCH: 25.4,
 	MAX_DECIMAL_PLACES: 5,
 

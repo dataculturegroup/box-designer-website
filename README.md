@@ -7,19 +7,21 @@ Dependencies
 ------------
 
 ```
+pip install reportlab
 pip install flask
 ```
 
 Installation
 ------------
 
-1. Make sure you have java installed
 2. Make the `tmp` directory writable by your web user
 
 Running
 -------
 
 Just run `python server.py` and then try it at http://localhost:5000 in your web browser.
+
+If you want to render a box in code, see the `test-render.py` example.
 
 License
 -------
