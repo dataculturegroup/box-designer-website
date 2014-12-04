@@ -1,7 +1,7 @@
 from boxmaker.box import Box
 
 APP_NAME = "BoxMaker"
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.0.1"
 WEBSITE_URL = "http://boxmaker.connectionlab.org"
 
 def render(file_path,width,height,depth,thickness,

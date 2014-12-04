@@ -7,3 +7,4 @@ lib
 public
 *.pyc
 tmp/restart.txt
+tmp/test.pdf

@@ -6,7 +6,24 @@ import boxmaker
 
 class Box():
     '''
-    Everything is in millimeters
+    Handles actually drawing of the notched box to a file.  This class passes everything around
+    in millimeters until it actually draws it at the low level.  It renders a files like this:
+    <pre>
+                ----------
+                |  w x d |
+                ----------
+                ----------
+                |  w x h |
+                |        |
+                ----------
+     ---------  ----------  ---------
+     | d x h |  |  w x d |  | d x h |
+     ---------  ----------  ---------
+                ----------
+                |  w x h |
+                |        |
+                ----------
+    </pre>
     '''
 
     def __init__(self,file_path,width,height,depth,thickness,
@@ -14,6 +31,7 @@ class Box():
         self._logger = logging.getLogger(__name__)
         self._file_path = file_path
         self._desired_size = { 'w': float(width), 'h': float(height), 'd': float(depth) }
+        self._logger.debug(" desired box size: (w=%.2f, h=%.2f, d=%.2f)" % (self._desired_size['w'],self._desired_size['h'],self._desired_size['d']))
         self._thickness = float(thickness)
         self._cut_width = float(cut_width)
         self._desired_notch_length = float(notch_length)
@@ -96,15 +114,19 @@ class Box():
         self._num_notches = { 'w': self._closest_odd(self._desired_size['w'] / self._desired_notch_length),
                               'h': self._closest_odd(self._desired_size['h'] / self._desired_notch_length),
                               'd': self._closest_odd(self._desired_size['d'] / self._desired_notch_length) }
+        self._logger.debug(" notch count: (w=%d, h=%d, d=%d)" % (self._num_notches['w'],self._num_notches['h'],self._num_notches['d']))
         # compute exact notch lengths
         self._notch_length = { 'w': self._size['w'] / self._num_notches['w'],
                                'h': self._size['h'] / self._num_notches['h'],
                                'd': self._size['d'] / self._num_notches['d'] }
+        self._logger.debug(" notch length: (w=%.2f, h=%.2f, d=%.2f)" % (self._notch_length['w'],self._notch_length['h'],self._notch_length['d']))
         # and compute the new width based on that (should be a NO-OP)
         self._margin = 10.0 + self._cut_width
+        self._logger.debug(" margin: %.2f" % (self._margin))
         self._size = { 'w': self._num_notches['w'] * self._notch_length['w'], 
                        'h': self._num_notches['h'] * self._notch_length['h'], 
                        'd': self._num_notches['d'] * self._notch_length['d'] }
+        self._logger.debug(" box size: (w=%.2f, h=%.2f, d=%.2f)" % (self._size['w'],self._size['h'],self._size['d']))
         # compute how big the document will be based on the layout of the pieces
         self._box_pieces_size = { 'w': self._size['d']*2.0 + self._size['w'],
                                   'h': self._size['h']*2.0 + self._size['d']*2.0 }
@@ -195,5 +217,6 @@ class Box():
         closest_odd = None
         if num % 2 == 0:
             closest_odd = num-1
-        closest_odd = num
+        else:
+            closest_odd = num
         return float(closest_odd)
