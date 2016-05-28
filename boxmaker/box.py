@@ -2,7 +2,13 @@ import logging, time
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 from reportlab.lib.colors import black
+from boxmaker.dxf import DXFDoc
 import boxmaker
+
+DOC_CLASSES = {
+    'pdf': canvas.Canvas,
+    'dxf': DXFDoc
+}
 
 class Box():
     '''
@@ -27,7 +33,7 @@ class Box():
     '''
 
     def __init__(self,file_path,width,height,depth,thickness,
-           cut_width,notch_length,bounding_box):
+           cut_width,notch_length,bounding_box,file_type):
         self._logger = logging.getLogger(__name__)
         self._file_path = file_path
         self._desired_size = { 'w': float(width), 'h': float(height), 'd': float(depth) }
@@ -36,6 +42,7 @@ class Box():
         self._cut_width = float(cut_width)
         self._desired_notch_length = float(notch_length)
         self._bounding_box = bounding_box
+        self.doc_cls = DOC_CLASSES[file_type]
 
     def render(self):
         # set things up
@@ -138,7 +145,10 @@ class Box():
 
     def _initialize_document(self):
         # initialize the pdf file (based on layout of pieces)
-        self._doc = canvas.Canvas(self._file_path)
+        #self._doc = canvas.Canvas(self._file_path)
+        #self._doc = DXFDoc(self._file_path)
+        self._doc = self.doc_cls(self._file_path)
+
         self._doc.setPageSize( [self._doc_size['w']*mm, self._doc_size['h']*mm] )
         self._doc.setAuthor(boxmaker.APP_NAME+" "+boxmaker.APP_VERSION)
         self._doc.setStrokeColor(black)
