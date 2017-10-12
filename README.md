@@ -25,4 +25,4 @@ If you want to render a box in code, see the `test-render.py` example.
 License
 -------
 
-This software is released under the [http://www.gnu.org/licenses/agpl.html](GNU Affero General Public License).
+This software is released under the [GNU Affero General Public License](http://www.gnu.org/licenses/agpl.html).
