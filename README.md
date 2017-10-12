@@ -7,8 +7,7 @@ Dependencies
 ------------
 
 ```
-pip install reportlab
-pip install flask
+pip install -r requirements.txt
 ```
 
 Installation
