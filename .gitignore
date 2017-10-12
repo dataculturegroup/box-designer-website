@@ -10,3 +10,4 @@ public
 tmp/restart.txt
 tmp/test.pdf
 .idea
+venv
