@@ -1,5 +1,6 @@
 *.log
 /tmp/boxes/*.pdf
+tmp/boxes/*.dxf
 bin
 core
 include
@@ -8,3 +9,4 @@ public
 *.pyc
 tmp/restart.txt
 tmp/test.pdf
+.idea

@@ -13,14 +13,14 @@
 
 		<div class="form-group">
 			<div class="row">
-		        <label class="col-sm-3 control-label" for="units">Units</label>
+        <label class="col-sm-3 control-label" for="units">Units</label>
 				<div class="col-sm-6">
-			        <select name="units" id="bm-units" class="form-control">
-			        	<option value="in" selected>inches</option>
-			        	<option value="mm">millimeters</option>
-			        	<option value="cm">centimeters</option>
-			        </select>
-			    </div>
+	        <select name="units" id="bm-units" class="form-control">
+	        	<option value="in" selected>inches</option>
+	        	<option value="mm">millimeters</option>
+	        	<option value="cm">centimeters</option>
+	        </select>
+		    </div>
 			</div>
 		</div>
 
@@ -34,29 +34,29 @@
 					&nbsp;
 					<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The width x depth x height of your box (outer dimension)."></span>
 				</div>
-		    </div>
-		 </div>
+	    </div>
+		</div>
 
 		<div class="form-group">
 			<div class="row">
-		        <label class="col-sm-3 control-label">Material Thickness</label>
+        <label class="col-sm-3 control-label">Material Thickness</label>
 				<div class="col-sm-9">
-	        		<input class="form-control" type="text" name="material_thickness" id="bm-material_thickness" value="0.1875"></input>
+      		<input class="form-control" type="text" name="material_thickness" id="bm-material_thickness" value="0.1875"></input>
 					&nbsp;
 					<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The thickness of the material (needed in order to properly size the notches)."></span>
-	        	</div>
-	        </div>
-	    </div>
+      	</div>
+      </div>
+    </div>
 
 		<div class="form-group">
 			<div class="row">
-		        <div class="col-sm-offset-3 col-sm-9"> 
-	    		[ <a href="#" onClick="$('#bm-create-advanced').slideToggle();return false;">advanced options</a> ]
-	    		</div>
-	    	</div>
-	    </div>
+        <div class="col-sm-offset-3 col-sm-9"> 
+    		  [ <a href="#" onClick="$('#bm-create-advanced').slideToggle();return false;">advanced options</a> ]
+    		</div>
+    	</div>
+    </div>
 	    
-	    <div id="bm-create-advanced" style="display:none">
+    <div id="bm-create-advanced" style="display:none">
 
 			<div class="form-group">
 				<div class="row">
@@ -98,8 +98,7 @@
 					<label class="col-sm-3 control-label">Bounding Box</label>
 					<div class="col-sm-9">
 						<label>
-							<input type="checkbox" name="bounding_box"/>
-							Draw bounding box
+						  <input type="checkbox" name="bounding_box"/> Draw bounding box
 						</label>
 						&nbsp;
 						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="Having problems with DXF imports?  Choose to add a bounding box around the whole box design 
@@ -112,20 +111,32 @@
 				<div class="row">
 					<label class="col-sm-3 control-label">File Type</label>
           <div class="col-sm-6">
-                <select name="file_type" id="bm-filetype" class="form-control">
-                  <option value="pdf" selected>pdf</option>
-                  <option value="dxf">dxf</option>
-                </select>
-            </div>
+            <select name="file_type" id="bm-filetype" class="form-control">
+              <option value="pdf" selected>pdf</option>
+              <option value="dxf">dxf</option>
+            </select>
+          </div>
 				</div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-sm-3 control-label">Include Cover</label>
+          <div class="col-sm-6">
+            <select name="notched_top" id="bm-notched-top" class="form-control">
+              <option value="1" selected>Yes, include a notched box cover</option>
+              <option value="0">No, don't include a cover piece (sides will be flat on top)</option>
+            </select>
+          </div>
+        </div>
 			</div>
 
 		</div>
 
 		<div class="form-group">
 			<div class="row">
-		        <div class="col-sm-offset-3 col-sm-9"> 
-					<button type="submit" class="btn btn-default">Design It!</button>
+        <div class="col-sm-offset-3 col-sm-9"> 
+				  <button type="submit" class="btn btn-default">Design It!</button>
 				</div>
 			</div>
 		</div>
