@@ -21,7 +21,8 @@ def index():
             logger.debug("Errors: "+error_str)
             return render_template('home.html', error=error_str)
         else:
-            box_name = _box_name()
+            file_type = request.form['file_type']
+            box_name = _box_name(file_type)
             logger.debug('Creating box '+box_name+"...")
             # convert it to millimeters
             measurements = ['width','height','depth','material_thickness','cut_width','notch_length']
@@ -37,22 +38,22 @@ def index():
             params['bounding_box'] = True if 'bounding_box' in request.form else False
             # now render it
             logger.info( request.remote_addr + " - " + box_name )
-            _render_box(box_name, params)
+            _render_box(box_name, file_type, params)
             return send_from_directory(BOX_TMP_DIR,box_name,as_attachment=True)
     else:
         return render_template("home.html",
             boxmaker_version = boxmaker.APP_VERSION)
 
-def _render_box(file_name, params):
-    pdf_file_path = os.path.join(BOX_TMP_DIR,file_name) 
-    boxmaker.render(pdf_file_path, 
+def _render_box(file_name, file_type, params):
+    out_file_path = os.path.join(BOX_TMP_DIR,file_name)
+    boxmaker.render(out_file_path,
         params['width'],params['height'],params['depth'],
         params['material_thickness'],params['cut_width'],params['notch_length'],
-        params['bounding_box']
+        params['bounding_box'], file_type
         )
 
-def _box_name():
-    return 'box-'+datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")+'.pdf'
+def _box_name(file_type):
+    return 'box-'+datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")+'.'+file_type
 
 def _validate_box_params():
     errors = []
