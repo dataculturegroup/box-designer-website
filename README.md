@@ -13,7 +13,7 @@ pip install -r requirements.txt
 Installation
 ------------
 
-2. Make the `tmp` directory writable by your web user
+Make the `tmp` directory writable by your web user
 
 Running
 -------
