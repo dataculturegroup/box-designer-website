@@ -4,11 +4,13 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 from reportlab.lib.colors import black
 from boxmaker.dxf import DXFDoc
+from boxmaker.svg import SVGDoc
 import boxmaker
 
 DOC_CLASSES = {
     'pdf': canvas.Canvas,
-    'dxf': DXFDoc
+    'dxf': DXFDoc,
+    'svg': SVGDoc,
 }
 
 
@@ -31,9 +33,9 @@ class Box:
 
     <pre>
 
-              ( 5--------6 
-                |  w x d | 
-                8--------7 ) 
+              ( 5--------6
+                |  w x d |
+                8--------7 )
                 5========6
                 |  w x h |
                 |        |
@@ -84,7 +86,7 @@ class Box:
         self._doc.save()
 
     def _draw_top(self):
-        x0 = self._size['d'] + self._margin*2.0 
+        x0 = self._size['d'] + self._margin*2.0
         y0 = self._size['h']*2.0 + self._size['d'] + self._margin*4.0
         self._draw_horizontal_line(x0, y0,
                                    self._notch_length['w'], self._num_notches['w'],
@@ -149,7 +151,7 @@ class Box:
         self._draw_vertical_line(x0+self._size['w']-self._thickness, y0,
                                  self._notch_length['d'], self._num_notches['d'],
                                  self._thickness, -1*self._cut_width/2.0, False, True)
-      
+
     def _draw_right(self):
         x0 = self._size['d'] + self._size['w'] + self._margin*3.0
         y0 = self._size['h'] + self._margin*2.0
@@ -170,7 +172,7 @@ class Box:
 
     def _draw_front(self):
         x0 = self._size['d'] + self._margin*2.0
-        y0 = self._size['h'] + self._size['d'] + self._margin*3.0    
+        y0 = self._size['h'] + self._size['d'] + self._margin*3.0
         self._draw_horizontal_line(x0, y0,
                                    self._notch_length['w'], self._num_notches['w'],
                                    self._thickness, self._cut_width/2.0, False, False)
