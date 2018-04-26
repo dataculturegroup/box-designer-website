@@ -63,24 +63,26 @@ class SVGDoc(object):
     def rect(self, x, y, w, h):
         self.elements.append(tmpl_rect.substitute(dict(x=self._sc(x), y=self._sc(y), w=self._sc(w), h=self._sc(h))))
 
-    def line(self, x0, y0, x1, y1):
-        self._line(x0, y0, x1, y1)
+    def drawClosedPath(self, p):
+        s = "M{},{}".format(self._sc(p[0][0]), self._sc(p[0][1]))
+        s += ''.join(["L{},{}".format(self._sc(pt[0]), self._sc(pt[1])) for pt in p[1:-1]])
+        s += 'Z'
+        self.elements.append(tmpl_path.substitute(dict(
+            path=s,
+            stroke_color=self._col(self.strokeColor),
+            stroke_pixels=self._sc(self.lineWidth)
+            )))
 
-    def beginPath(self):
-        pass
-
-    def moveTo(self, x, y):
-        pass
-
-    def lineTo(self, x, y):
-        pass
-
-    def drawPath(self):
-        pass
+    def drawOpenPath(self, p):
+        s = "M{},{}".format(self._sc(p[0][0]), self._sc(p[0][1]))
+        s += ''.join(["L{},{}".format(self._sc(pt[0]), self._sc(pt[1])) for pt in p[1:]])
+        self.elements.append(tmpl_path.substitute(dict(
+            path=s,
+            stroke_color=self._col(self.strokeColor),
+            stroke_pixels=self._sc(self.lineWidth)
+            )))
 
     def save(self):
-        self._join_paths()
-        self._generateElements()
         s = ''.join([e for e in self.elements])
         pgw, pgh = self._sc(self.pageSize[0]), self._sc(self.pageSize[1])
         svg = tmpl_svg.substitute(dict(
@@ -102,58 +104,3 @@ class SVGDoc(object):
         "generates a CSS color from a reportlab color"
         return '#'+color.hexval()[2:]
 
-    def _generateElements(self):
-        for p in self.paths:
-            s = ''
-            if p[0] == p[-1]:
-                # generate closed path
-                s = "M{},{}".format(p[0][0], p[0][1])
-                s += ''.join(["L{},{}".format(pt[0], pt[1]) for pt in p[1:-1]])
-                s += 'Z'
-            else:
-                # generate open path
-                s = "M{},{}".format(p[0][0], p[0][1])
-                s += ''.join(["L{},{}".format(pt[0], pt[1]) for pt in p[1:]])
-            self.elements.append(tmpl_path.substitute(dict(
-                path=s,
-                stroke_color=self._col(self.strokeColor),
-                stroke_pixels=self._sc(self.lineWidth)
-                )))
-
-    def _join_paths_1(self):
-        oldpaths = self.paths[:]
-        newpaths = []
-        while len(oldpaths):
-            start = -1
-            it = oldpaths.pop()
-            for pi in range(len(oldpaths)):
-                if oldpaths[pi][-1] == it[0]:
-                    start = pi
-                    break
-                if oldpaths[pi][-1] == it[-1]:
-                    start = pi
-                    it.reverse()
-                    break
-            if start == -1:
-                newpaths.append(it)
-            else:
-                newpaths.append(oldpaths[start] + it[1:])
-                del oldpaths[start]
-        return newpaths
-
-    def _join_paths(self):
-        while True:
-            count = len(self.paths)
-            paths = self._join_paths_1()
-            self.paths = paths
-            if len(paths) == count:
-                break
-
-    def _line(self, x0, y0, x1, y1):
-        p1 = (self._sc(x0), self._sc(y0))
-        p2 = (self._sc(x1), self._sc(y1))
-        seg = [p1, p2]
-        if p1 in self.firsts:
-            seg = [p2, p1]
-        self.paths.append(seg)
-        self.firsts.add(seg[0])

@@ -5,10 +5,12 @@ from reportlab.lib.units import mm
 from reportlab.lib.colors import black
 from boxmaker.dxf import DXFDoc
 from boxmaker.svg import SVGDoc
+from boxmaker.pdf import PDFDoc
+from boxmaker.pathbuilder import PathBuilder, Point
 import boxmaker
 
 DOC_CLASSES = {
-    'pdf': canvas.Canvas,
+    'pdf': PDFDoc,
     'dxf': DXFDoc,
     'svg': SVGDoc,
 }
@@ -63,6 +65,7 @@ class Box:
         self._bounding_box = bounding_box
         self._doc_cls = DOC_CLASSES[file_type]
         self._tray = tray
+        self.paths = PathBuilder()
 
     def render(self):
         # set things up
@@ -83,6 +86,8 @@ class Box:
         # 6. a W X D side (the top)
         if not self._tray:
             self._draw_top()        # and write out the file
+        self.paths.join_paths()
+        self.paths.emit_paths(self._doc)
         self._doc.save()
 
     def _draw_top(self):
@@ -297,4 +302,4 @@ class Box:
             y = y+notch_width
 
     def _draw_line(self, from_x, from_y, to_x, to_y):
-        self._doc.line(from_x*mm, from_y*mm, to_x*mm, to_y*mm)
+        self.paths.add_segment(from_x*mm, from_y*mm, to_x*mm, to_y*mm)
