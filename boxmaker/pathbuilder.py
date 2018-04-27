@@ -37,8 +37,10 @@ class PathBuilder(object):
         self.firsts.add(seg[0])
 
     def emit_paths(self, doc):
-        # for p in self.paths:
-        #     pathfunc(p)
+        """
+        Walk the list of paths and emit them as either closed or open depending
+        on if the endpoints are the same point.
+        """
         for p in self.paths:
             pointsonly = [(pt.x, pt.y) for pt in p]
             if p[0] == p[-1]:

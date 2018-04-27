@@ -1,18 +1,13 @@
 # By Kent Quirk, April 2018
-# PDF writer; outputs lines and text
+# PDF writer
 
-# Although SVG is an XML-based language, XML manipulation is annoyingly complicated for what we need
-# to do here, so we're just going to treat set things up with a template and embed strings.
-
-# This system exists generate SVG files -- in particular to use with the Glowforge laser cutter. One thing that
-# makes using the Glowforge UI work better is for SVGs to use closed paths rather than a semi-random selection of
-# lines. Consequently, what this driver does is collect all of the line commands and record them; on the
-# save call it concatenates them together into a set of paths.
+# The dxf object was originally designed to emulate canvas.Canvas -- but that has proved a little too limiting.
+# So instead of pdfs rendering directly to canvas.Canvas, we have specific drivers for different file types.
+# This file implements the pdf-specific rendering.
 
 from reportlab.pdfgen import canvas
 import reportlab.lib.colors as colors
 from string import Template
-
 
 class PDFDoc(object):
 
