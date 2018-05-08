@@ -28,8 +28,8 @@
 			<div class="row">
 				<label class="col-sm-3 control-label">Dimensions</label>
 				<div class="col-sm-9">
-					<input class="form-control" type="text" name="width" value="4"/> x 
-					<input class="form-control" type="text" name="depth" value="5" /> x 
+					<input class="form-control" type="text" name="width" value="4"/> x
+					<input class="form-control" type="text" name="depth" value="5" /> x
 					<input class="form-control" type="text" name="height" value="6" />
 					&nbsp;
 					<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The width x depth x height of your box (outer dimension)."></span>
@@ -50,12 +50,12 @@
 
 		<div class="form-group">
 			<div class="row">
-        <div class="col-sm-offset-3 col-sm-9"> 
+        <div class="col-sm-offset-3 col-sm-9">
     		  [ <a href="#" onClick="$('#bm-create-advanced').slideToggle();return false;">advanced options</a> ]
     		</div>
     	</div>
     </div>
-	    
+
     <div id="bm-create-advanced" style="display:none">
 
 			<div class="form-group">
@@ -68,9 +68,9 @@
 							Auto
 						</label>
 						&nbsp;
-						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The length of each notch. If you don't care, just leave the auto checkbox as is.  A good 
-			            general rule is two or three times the material depth. Note that this parameter is used 
-			            as a suggestion only - the program will adjust the notch length so that the geometry of 
+						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The length of each notch. If you don't care, just leave the auto checkbox as is.  A good
+			            general rule is two or three times the material depth. Note that this parameter is used
+			            as a suggestion only - the program will adjust the notch length so that the geometry of
 			            the box comes out correctly."></span>
 					</div>
 				</div>
@@ -82,12 +82,12 @@
 					<div class="col-sm-9">
 						<input class="form-control" type="text" name="cut_width" value="0" />
 						&nbsp;
-						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The width of material removed by the laser. We assume that the beam cuts symmetrically 
+						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The width of material removed by the laser. We assume that the beam cuts symmetrically
 				        around the cutting line but that it has some finite width. For example, if a non-zero cut
-			            width is specified, the notches will be slightly exaggerated so that the notches fit more 
-			            snugly together. A value of zero is usually safe but loose-fitting. The cut width must be 
-			            experimentally determined, as it is a function of the material, laser speed/power parameters, 
-			            etc. Reasonable values for 1/8 inch acrylic are .004 inches to .008 inches. If the cut width is 
+			            width is specified, the notches will be slightly exaggerated so that the notches fit more
+			            snugly together. A value of zero is usually safe but loose-fitting. The cut width must be
+			            experimentally determined, as it is a function of the material, laser speed/power parameters,
+			            etc. Reasonable values for 1/8 inch acrylic are .004 inches to .008 inches. If the cut width is
 			            set too large, the box will not fit together snugly."></span>
 					</div>
 				</div>
@@ -101,7 +101,7 @@
 						  <input type="checkbox" name="bounding_box"/> Draw bounding box
 						</label>
 						&nbsp;
-						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="Having problems with DXF imports?  Choose to add a bounding box around the whole box design 
+						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="Having problems with DXF imports?  Choose to add a bounding box around the whole box design
 			            and then you can size the entire thing correctly once you import it."></span>
 					</div>
 				</div>
@@ -114,6 +114,7 @@
             <select name="file_type" id="bm-filetype" class="form-control">
               <option value="pdf" selected>pdf</option>
               <option value="dxf">dxf</option>
+              <option value="svg">svg</option>
             </select>
           </div>
 				</div>
@@ -135,7 +136,7 @@
 
 		<div class="form-group">
 			<div class="row">
-        <div class="col-sm-offset-3 col-sm-9"> 
+        <div class="col-sm-offset-3 col-sm-9">
 				  <button type="submit" class="btn btn-default">Design It!</button>
 				</div>
 			</div>

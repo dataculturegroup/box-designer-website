@@ -1,14 +1,17 @@
 import logging
 import time
-from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 from reportlab.lib.colors import black
 from boxmaker.dxf import DXFDoc
+from boxmaker.svg import SVGDoc
+from boxmaker.pdf import PDFDoc
+from boxmaker.pathbuilder import PathBuilder, Point
 import boxmaker
 
 DOC_CLASSES = {
-    'pdf': canvas.Canvas,
-    'dxf': DXFDoc
+    'pdf': PDFDoc,
+    'dxf': DXFDoc,
+    'svg': SVGDoc,
 }
 
 
@@ -31,9 +34,9 @@ class Box:
 
     <pre>
 
-              ( 5--------6 
-                |  w x d | 
-                8--------7 ) 
+              ( 5--------6
+                |  w x d |
+                8--------7 )
                 5========6
                 |  w x h |
                 |        |
@@ -61,6 +64,7 @@ class Box:
         self._bounding_box = bounding_box
         self._doc_cls = DOC_CLASSES[file_type]
         self._tray = tray
+        self.paths = PathBuilder()
 
     def render(self):
         # set things up
@@ -81,10 +85,12 @@ class Box:
         # 6. a W X D side (the top)
         if not self._tray:
             self._draw_top()        # and write out the file
+        self.paths.join_paths()
+        self.paths.emit_paths(self._doc)
         self._doc.save()
 
     def _draw_top(self):
-        x0 = self._size['d'] + self._margin*2.0 
+        x0 = self._size['d'] + self._margin*2.0
         y0 = self._size['h']*2.0 + self._size['d'] + self._margin*4.0
         self._draw_horizontal_line(x0, y0,
                                    self._notch_length['w'], self._num_notches['w'],
@@ -149,7 +155,7 @@ class Box:
         self._draw_vertical_line(x0+self._size['w']-self._thickness, y0,
                                  self._notch_length['d'], self._num_notches['d'],
                                  self._thickness, -1*self._cut_width/2.0, False, True)
-      
+
     def _draw_right(self):
         x0 = self._size['d'] + self._size['w'] + self._margin*3.0
         y0 = self._size['h'] + self._margin*2.0
@@ -170,7 +176,7 @@ class Box:
 
     def _draw_front(self):
         x0 = self._size['d'] + self._margin*2.0
-        y0 = self._size['h'] + self._size['d'] + self._margin*3.0    
+        y0 = self._size['h'] + self._size['d'] + self._margin*3.0
         self._draw_horizontal_line(x0, y0,
                                    self._notch_length['w'], self._num_notches['w'],
                                    self._thickness, self._cut_width/2.0, False, False)
@@ -295,4 +301,4 @@ class Box:
             y = y+notch_width
 
     def _draw_line(self, from_x, from_y, to_x, to_y):
-        self._doc.line(from_x*mm, from_y*mm, to_x*mm, to_y*mm)
+        self.paths.add_segment(from_x*mm, from_y*mm, to_x*mm, to_y*mm)

@@ -46,8 +46,15 @@ class DXFDoc(object):
         for i, pt in enumerate(points):
             self._line((pt, points[(i+1) % 4]))
 
-    def line(self, x0, y0, x1, y1):
-        self._line(((x0, y0), (x1, y1)))
+    def drawClosedPath(self, p):
+        # just draw all the segments
+        start = p[0]
+        for end in p[1:]:
+            self._line((start, end))
+
+    def drawOpenPath(self, p):
+        # same as the closed path ones since we're just drawing segments
+        self.drawClosedPath(p)
 
     def save(self):
         if not self.has_tail:
