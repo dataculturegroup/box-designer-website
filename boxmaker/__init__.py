@@ -1,7 +1,7 @@
 from boxmaker.box import Box
 
 APP_NAME = "box designer"
-APP_VERSION = "2.2.0"
+APP_VERSION = "2.3.0"
 WEBSITE_URL = "http://boxdesigner.connectionlab.org"
 
 
