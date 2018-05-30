@@ -51,6 +51,7 @@ class DXFDoc(object):
         start = p[0]
         for end in p[1:]:
             self._line((start, end))
+            start = end
 
     def drawOpenPath(self, p):
         # same as the closed path ones since we're just drawing segments
