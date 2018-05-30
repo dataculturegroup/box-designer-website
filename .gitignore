@@ -1,6 +1,7 @@
 *.log
-/tmp/boxes/*.pdf
+tmp/boxes/*.pdf
 tmp/boxes/*.dxf
+tmp/boxes/*.svg
 bin
 core
 include
@@ -12,3 +13,4 @@ tmp/test.pdf
 .idea
 venv
 .vscode
+
