@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BOX_TMP_DIR = os.path.join(BASE_DIR, 'tmp', 'boxes')
 
 # setup logging
-logging.basicConfig(filename=os.path.join(BASE_DIR, 'boxmaker.log'), level=logging.INFO)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.info("---------------------------------------------------------------------------")
 
