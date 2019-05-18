@@ -43,7 +43,11 @@ def index():
             _render_box(box_name, file_type, params, notched_top)
             return send_from_directory(BOX_TMP_DIR, box_name, as_attachment=True)
     else:
-        return render_template("home.html", boxmaker_version=boxmaker.APP_VERSION)
+        return render_template("home.html",
+                               boxmaker_version=boxmaker.APP_VERSION,
+                               matomo_tracker_url=os.getenv('MATOMO_TRACKER_URL', None),
+                               matomo_site_id=os.getenv('MATOMO_SITE_ID', None),
+        )
 
 
 def _render_box(file_name, file_type, params, notched_top):
