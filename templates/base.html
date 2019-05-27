@@ -89,9 +89,7 @@
               <a href="{{ ad['url'] }}">
                 <img align="left" src="{{ url_for('static', filename='images/'+ad['image']) }}" alt="{{ ad['name'] }}">
               </a>
-              <a href="{{ ad['url'] }}">
-                {{ ad['text'] }}
-              </a>
+              {{ ad['text'] | safe }}
             </div>
           {% endfor %}
         </div>

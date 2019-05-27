@@ -13,6 +13,10 @@ with open(ad_config_file_path, 'r') as f:
     ad_config = json.load(f)
 logging.info("Loaded {} ads".format(len(ad_config)))
 
+# clean up text
+for ad in ad_config:
+    ad['text'] = ad['text'].replace('URL', ad['url'])
+
 
 def visible_ads():
     # TODO: respect start and end dates
