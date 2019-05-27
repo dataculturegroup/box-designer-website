@@ -71,16 +71,29 @@
             </i>
           </p>
           <br />          
-          <div id="bm-flickr-pool">
-            <p>
-            Add your picture to the <a href="http://www.flickr.com/groups/boxmaker/">flickr pool</a>!
-            </p>
-          </div>
         </div>
         <div class="col-md-8">
           {% block content %}
           {{ content |safe }}
           {% endblock %}
+        </div>
+      </div>
+
+      <div id="bm-ads">
+        <div class="row">
+          <div class="col-md-12">Ads:</div>
+        </div>
+        <div class="row">
+          {% for ad in ads %}
+            <div class="col-md-4">
+              <a href="{{ ad['url'] }}">
+                <img align="left" src="{{ url_for('static', filename='images/'+ad['image']) }}" alt="{{ ad['name'] }}">
+              </a>
+              <a href="{{ ad['url'] }}">
+                {{ ad['text'] }}
+              </a>
+            </div>
+          {% endfor %}
         </div>
       </div>
 

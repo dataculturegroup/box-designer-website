@@ -1,6 +1,10 @@
-import logging.handlers, os, datetime
+import logging
+import os
+import datetime
 from flask import Flask, render_template, request, send_from_directory
+
 import boxmaker
+import ads
 
 app = Flask(__name__)
 
@@ -47,7 +51,8 @@ def index():
                                boxmaker_version=boxmaker.APP_VERSION,
                                matomo_tracker_url=os.getenv('MATOMO_TRACKER_URL', None),
                                matomo_site_id=os.getenv('MATOMO_SITE_ID', None),
-        )
+                               ads=ads.visible_ads(),
+                               )
 
 
 def _render_box(file_name, file_type, params, notched_top):
@@ -80,6 +85,7 @@ def _numeric_errors(string, name):
         return []
     except ValueError:
         return [name + " must be a number!"]
+
 
 if __name__ == "__main__":
     app.debug = False

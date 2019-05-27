@@ -92,3 +92,13 @@ small {
 	margin-left: 10px;
 	margin-right: 10px;
 }
+
+#bm-ads {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 3px solid #7B354D;
+}
+
+#bm-ads img {
+	margin-right: 10px;
+}
