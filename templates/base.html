@@ -87,7 +87,11 @@
           {% for ad in ads %}
             <div class="col-md-4">
               <a href="{{ ad['url'] }}">
-                <img align="left" src="{{ url_for('static', filename='images/'+ad['image']) }}" alt="{{ ad['name'] }}">
+                <img align="left"
+                     src="{{ ad['image'] }}"
+                     width="150"
+                     srcset="{{ ad['srcset'] }}"
+                     alt="{{ ad['name'] }}">
               </a>
               {{ ad['text'] | safe }}
             </div>
