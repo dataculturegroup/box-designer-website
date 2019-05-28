@@ -4,7 +4,7 @@ import datetime
 from flask import Flask, render_template, request, send_from_directory
 
 import boxmaker
-import ads
+import boxmaker.ads
 
 app = Flask(__name__)
 
@@ -51,7 +51,7 @@ def index():
                                boxmaker_version=boxmaker.APP_VERSION,
                                matomo_tracker_url=os.getenv('MATOMO_TRACKER_URL', None),
                                matomo_site_id=os.getenv('MATOMO_SITE_ID', None),
-                               ads=ads.visible_ads(),
+                               ads=boxmaker.ads.visible_ads(),
                                )
 
 
