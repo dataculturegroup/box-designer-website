@@ -1,4 +1,4 @@
-Box Designer Web App
+Full Dependencies, Installation and running of Simple Box Designer Web App Project Box..
 ====================
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
