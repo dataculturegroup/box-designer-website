@@ -1,4 +1,4 @@
-Box Designer Web App
+BOX DESIGNER WEB APP
 ====================
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
