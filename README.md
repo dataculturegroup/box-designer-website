@@ -2,6 +2,8 @@ Box Designer Web App
 ====================
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
+This is an amazing project which runs on python.
+please read for more details :-
 
 Dependencies
 ------------
