@@ -1,34 +1,34 @@
-Box Designer Web App
-====================
+# Box Designer Web App
+======================
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
 
-Dependencies
-------------
+## Dependencies
+---------------
 
 ```
 pip install -r requirements.txt
 ```
 
-Installation
-------------
+## Installation
+---------------
 
 Make the `tmp` directory writable by your web user
 
-Running
--------
+## Running
+----------
 
 Just run `python server.py` and then try it at http://localhost:5000 in your web browser.
 
 If you want to render a box in code, see the `test-render.py` example.
 
-License
--------
+## License
+----------
 
 This software is released under the [GNU Affero General Public License](http://www.gnu.org/licenses/agpl.html).
 
-Deploying
----------
+## Deploying
+------------
 
 This is built to be deployed easily to a containerized host (ie. Heroku-style).
 
@@ -36,8 +36,8 @@ Optional environment variables:
 * MATOMO_TRACKER_URL - if you want to use Matomo analytics, fill this in
 * MATOMO_SITE_ID - if you want to use Matomo analytics, fill this in
 
-Contributors
-------------
+## Contributors
+---------------
 
 Box Designer started as a piece of Java desktop software in April of 2001 while Rahul Bhargava was a student at the
 MIT Media Lab's Lifelong Kindergarten Group. Since then, as it evolved into a Rails web app, and then a Python web app,
