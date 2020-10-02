@@ -1,4 +1,4 @@
-Box Designer Web App
+Best Box Designing Web Application
 ====================
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
