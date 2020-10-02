@@ -1,4 +1,4 @@
-Box Designer Web App
+A WEB BOX DESIGNER APP
 ====================
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
@@ -47,3 +47,7 @@ others have contributed important pieces:
 * @vincentadam87 on GitHub contributed the "no top" option
 * eolson [at] mit [dot] edu contributed the original notch length and kerf options
 * @kentquirk on GitHub contributed SVG output and made the system generate closed curves in PDF and SVG
+HACKTOBERFEST:-
+
+IF YOU ARE COMING FOR ISSUES PLEASE CORRECT SPELLINGS
+"THANK YOU"
