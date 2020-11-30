@@ -1,12 +1,2 @@
 [
-  {
-    "name": "Refine Packaging Custom Boxes",
-    "client": "Refine Packaging",
-    "srcset": "/static/images/refine-packaging-custom-boxes-150.png 150w, /static/images/refine-packaging-custom-boxes-300.png 300w",
-    "image": "/static/images/refine-packaging-custom-boxes-150.png",
-    "text": "Design your own <a href=\"URL\">custom boxes</a> with Refine Packaging. Trusted by T-Mobile, Adidas, Pandora and more.",
-    "url": "https://refinepackaging.com/?utm_source=boxdesigner",
-    "start": "2019-06-01",
-    "end": "2019-12-01"
-  }
 ]
