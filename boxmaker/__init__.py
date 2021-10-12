@@ -3,7 +3,7 @@ import os
 from boxmaker.box import Box
 
 APP_NAME = "box designer"
-APP_VERSION = "2.4.3"
+APP_VERSION = "2.4.4"
 WEBSITE_URL = "http://boxdesigner.connectionlab.org"
 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
