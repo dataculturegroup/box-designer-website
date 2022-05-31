@@ -15,7 +15,7 @@
   			<div class="row">
           <label class="col-sm-3 control-label" for="units">Units</label>
   				<div class="col-sm-6">
-  	        <select name="units" id="bm-units" class="form-control">
+  	        <select name="units" id="bm-units" class="form-control" aria-label="Units">
   	        	<option value="in" selected>inches</option>
   	        	<option value="mm">millimeters</option>
   	        	<option value="cm">centimeters</option>
@@ -28,9 +28,9 @@
   			<div class="row">
   				<label class="col-sm-3 control-label">Dimensions</label>
   				<div class="col-sm-9">
-  					<input class="form-control" type="text" name="width" value="4"/> x
-  					<input class="form-control" type="text" name="depth" value="5" /> x
-  					<input class="form-control" type="text" name="height" value="6" />
+  					<input class="form-control" type="text" name="width" value="4" aria-label="width"/> x
+  					<input class="form-control" type="text" name="depth" value="5" aria-label="depth"/> x
+  					<input class="form-control" type="text" name="height" value="6" aria-label="height"/>
   					&nbsp;
   					<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The width x depth x height of your box (outer dimension)."></span>
   				</div>
@@ -41,7 +41,7 @@
         <div class="row">
           <label class="col-sm-3 control-label">Material Thickness</label>
   				<div class="col-sm-9">
-        		<input class="form-control" type="text" name="material_thickness" id="bm-material_thickness" value="0.1875"></input>
+        		<input class="form-control" type="text" name="material_thickness" id="bm-material_thickness" value="0.1875" aria-label="Material Thickness"></input>
   					&nbsp;
   					<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The thickness of the material (needed in order to properly size the notches)."></span>
         	</div>
@@ -52,7 +52,7 @@
         <div class="row">
           <label class="col-sm-3 control-label">File Type</label>
           <div class="col-sm-6">
-            <select name="file_type" id="bm-filetype" class="form-control">
+            <select name="file_type" id="bm-filetype" class="form-control" aria-label="File Type">
               <option value="pdf" selected>pdf</option>
               <option value="dxf">dxf</option>
               <option value="svg">svg</option>
