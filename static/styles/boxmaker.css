@@ -23,6 +23,7 @@ a:link,
 a:visited,
 a {
     color: #333333;
+	text-decoration: underline;
 }
 
 p {
