@@ -14,3 +14,4 @@ tmp/test.pdf
 venv
 .vscode
 
+.DS_Store
