@@ -34,14 +34,14 @@ label {
 }
 
 label.control-label {
-	color: #9F923C;
+	color: #6F620C;
 	text-transform: uppercase; 
 	font-weight: bold;
 }
 
 input[type='text'] {
 	font-weight: bold;
-	color: #EB8429;
+	color: #CB6409;
 }
 
 small {

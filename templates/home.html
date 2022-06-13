@@ -76,9 +76,9 @@
   				<div class="row">
   					<label class="col-sm-3 control-label">Notch Length</label>
   					<div class="col-sm-9">
-  						<input class="form-control" type="text" name="notch_length" id="bm-notch_length" value="0.46875" />
+  						<input class="form-control" type="text" name="notch_length" id="bm-notch_length" value="0.46875" aria-label="Notch Length"/>
   						<label>
-  							<input type="checkbox" name="auto" value="" id="bm-auto" checked/>
+  							<input type="checkbox" name="auto" value="" id="bm-auto" checked aria-label="Auto-compute Notch Length"/>
   							Auto
   						</label>
   						&nbsp;
@@ -94,7 +94,7 @@
   				<div class="row">
   					<label class="col-sm-3 control-label">Cut Width</label>
   					<div class="col-sm-9">
-  						<input class="form-control" type="text" name="cut_width" value="0" />
+  						<input class="form-control" type="text" name="cut_width" value="0" aria-label="Cut Width"/>
   						&nbsp;
   						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="The width of material removed by the laser. We assume that the beam cuts symmetrically
   				        around the cutting line but that it has some finite width. For example, if a non-zero cut
@@ -112,7 +112,7 @@
   					<label class="col-sm-3 control-label">Bounding Box</label>
   					<div class="col-sm-9">
   						<label>
-  						  <input type="checkbox" name="bounding_box"/> Draw bounding box
+  						  <input type="checkbox" name="bounding_box" aria-label="Bounding Box"/> Draw bounding box
   						</label>
   						&nbsp;
   						<span class="glyphicon glyphicon-question-sign bm-btn-popover" data-toggle="popover" data-content="Having problems with DXF imports?  Choose to add a bounding box around the whole box design
@@ -125,7 +125,7 @@
           <div class="row">
             <label class="col-sm-3 control-label">Include Cover</label>
             <div class="col-sm-6">
-              <select name="notched_top" id="bm-notched-top" class="form-control">
+              <select name="notched_top" id="bm-notched-top" class="form-control" aria-label="Include Cover?">
                 <option value="1" selected>Yes, include a notched box cover</option>
                 <option value="0">No, don't include a cover piece (sides will be flat on top)</option>
               </select>
