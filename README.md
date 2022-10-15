@@ -43,7 +43,7 @@ Box Designer started as a piece of Java desktop software in April of 2001 while 
 MIT Media Lab's Lifelong Kindergarten Group. Since then, as it evolved into a Rails web app, and then a Python web app,
 others have contributed important pieces:
 
-* @wildsparx on GitHub contributed the DXF output
-* @vincentadam87 on GitHub contributed the "no top" option
+* [@wildsparx](https://github.com/wildsparx) on GitHub contributed the DXF output
+* [@vincentadam87](https://github.com/vincentadam87) on GitHub contributed the "no top" option
 * eolson [at] mit [dot] edu contributed the original notch length and kerf options
-* @kentquirk on GitHub contributed SVG output and made the system generate closed curves in PDF and SVG
+* [@kentquirk](https://github.com/kentquirk) on GitHub contributed SVG output and made the system generate closed curves in PDF and SVG
