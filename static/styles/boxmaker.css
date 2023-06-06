@@ -1,8 +1,9 @@
 /* http://www.colourlovers.com/palette/1311586/autumn_wood */
 
 body {
-    font-family: 'Gill Sans', Verdana;
+    font-family: 'Gill Sans', Verdana, sans-serif;
 	background-color: #EB8429;
+	margin-top: 15px;
 }
 
 h1 {
@@ -34,10 +35,17 @@ label {
 	font-weight: normal;
 }
 
-label.control-label {
+label.bm-control-label {
 	color: #6F620C;
+	padding-top: 10px;
+	margin-right: 0px;
+	text-align: right;
 	text-transform: uppercase; 
 	font-weight: bold;
+}
+
+input {
+	margin-bottom: 10px;
 }
 
 input[type='text'] {
@@ -45,10 +53,23 @@ input[type='text'] {
 	color: #CB6409;
 }
 
+input[type='submit'] {
+	border: 1px solid #999;
+}
+
+select {
+	margin-bottom: 10px;
+}
+
 small {
     color: #666;
 	font-size: 11px;
 	font-family: Verdana, Geneva, Arial, sans-serif;
+}
+
+#bm-advanced {
+	margin: 10px 0px;
+	display: block;
 }
 
 #bm-create-form a:active,
@@ -76,6 +97,7 @@ small {
 
 #bm-create-form {
 	margin-top: 30px;
+	padding: 15px;
 	background-color: #FCEAAA;
 	border: 3px solid #C33C10;
 	border-radius: 10px;
@@ -103,4 +125,11 @@ small {
 
 #bm-ads img {
 	margin-right: 10px;
+}
+
+.bm-top-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
 }

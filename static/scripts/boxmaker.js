@@ -1,5 +1,5 @@
 
-var BoxMaker = {
+const BoxMaker = {
 
 	MM_PER_INCH: 25.4,
 	MAX_DECIMAL_PLACES: 5,
@@ -16,38 +16,21 @@ var BoxMaker = {
 	    $('#BoxWidth').focus();
 	},
 
-	_getUnit: function() {
-		return $('#bm-units').val();
-	},
+	_getUnit: () => $('#bm-units').val(),
 
-	alert: function(str){
-		alert(str);
-	},
-	
-	handleUnitChange: function() {
-    	BoxMaker.debug("change units to "+$('#bm-units').val());
-	},
+	alert: str => alert(str),
 
-	_useAutoNotchLength: function() {
-	    return ($('#bm-auto').is(':checked'));
-	},
+	handleUnitChange: () => BoxMaker.debug("change units to " + $('#bm-units').val()),
 
-	_setNotchLength: function(value) {
-		$('#bm-notch_length').val( BoxMaker._roundNumber(value,BoxMaker.MAX_DECIMAL_PLACES) );
-	},
+	_useAutoNotchLength: () => ($('#bm-auto').is(':checked')),
 
-	_getMaterialWidth: function() {
-		return $('#bm-material_thickness').val();
-	},
+	_setNotchLength: value => $('#bm-notch_length').val( BoxMaker._roundNumber(value,BoxMaker.MAX_DECIMAL_PLACES) ),
 
-	_roundNumber: function(num, dec)  {
-    	var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
-    	return result;
-	},
+	_getMaterialWidth: () => $('#bm-material_thickness').val(),
 
-	_hasMaterialWidth: function() {
-		return (BoxMaker._getMaterialWidth().length != 0);
-	},
+	_roundNumber: (num, dec)  => Math.round(num*Math.pow(10,dec))/Math.pow(10,dec),
+
+	_hasMaterialWidth: () => BoxMaker._getMaterialWidth().length != 0,
 
 	_millimetersToUnits: function(value){
 		switch (BoxMaker._getUnit()) {
@@ -90,7 +73,7 @@ var BoxMaker = {
 		BoxMaker._setNotchLength( BoxMaker._millimetersToUnits(notchLength) );
 	},
 
-	debug: function(str){
+	debug: (str) => {
 		//console.log("BM: "+str);
 	}
 

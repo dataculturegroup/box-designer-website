@@ -12,20 +12,14 @@
 
     <title>{% block page_title %}Box Designer{% endblock %}</title>
 
-    <link rel="stylesheet" href="/static/styles/bootstrap.min.css" type="text/css" charset="utf-8" />
-    <!-- <link rel="stylesheet" href="/static/styles/bootstrap-theme.min.css" type="text/css" charset="utf-8" /> -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" href="/static/styles/boxmaker.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/styles/boxmaker.css" type="text/css" />
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/icons/apple-touch-icon-144-precomposed.png">
     <link rel="Shortcut Icon" href="/static/icons/favicon.ico" type="image/x-icon">
 
-    <script src="/static/scripts/jquery-2.1.1.min.js"></script>
-    <script src="/static/scripts/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js" integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/static/scripts/boxmaker.js"></script>
 
   </head>
@@ -56,8 +50,8 @@
               <input type="hidden" name="no_note" value="0">
               <input type="hidden" name="currency_code" value="USD">
               <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
           </p>
           <br />
@@ -65,11 +59,15 @@
             <i>
             email: r.bhargava [ at ] northeastern [ dot ] edu
             <br />
-            supported by <a href="http://camd.northeastern.edu">Northeastern University</a>, <a href="https://media.mit.edu/">MIT Media Lab</a>, and <a href="https://connectionlab.org/">Connection Lab</a>
+            supported by <a href="https://camd.northeastern.edu">Northeastern University</a>, <a href="https://media.mit.edu/">MIT Media Lab</a>, and <a href="https://connectionlab.org/">Connection Lab</a>
             <br />
             designing boxes since 2002
             <br />
-            twitter: <a href="http://twitter.com/rahulbot">@rahulbot</a>
+            mastodon: <a href="https://vis.social/@rahulbot">@rahulbot@vis.social</a>
+            <br />
+            instagram: <a href="http://instagram.com/rahulbot/">rahulbot</a>
+            <br />
+            twitter: <a href="https://twitter.com/rahulbot">@rahulbot</a>
             <br />
             <a href="https://github.com/dataculturegroup/box-designer-website/blob/main/LICENSE">License: APGL</a>
             <br />
@@ -94,8 +92,7 @@
           {% for ad in ads %}
             <div class="col-md-4">
               <a href="{{ ad['url'] }}">
-                <img align="left"
-                     src="{{ ad['image'] }}"
+                <img src="{{ ad['image'] }}"
                      width="150"
                      srcset="{{ ad['srcset'] }}"
                      alt="{{ ad['name'] }}">
@@ -109,7 +106,9 @@
 
     </div>
 
-    <a href="http://github.com/rahulbot/boxmaker-website"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/rahulbot/boxmaker-website">
+        <a href="https://github.com/you"><img class="bm-top-right" decoding="async" loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    </a>
 
   </body>
 
